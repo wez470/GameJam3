@@ -24,7 +24,7 @@ public class Turret : MonoBehaviour {
 	}
 
 	void Start() {
-		distToCenter = Mathf.Abs(transform.position.x);
+		distToCenter = Mathf.Sqrt(transform.position.x * transform.position.x + transform.position.y * transform.position.y);
 		currAngle = Mathf.Atan2(TurretBase.transform.position.y, TurretBase.transform.position.x);
 		lastFireTime = Time.timeSinceLevelLoad;
 	}
