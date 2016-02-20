@@ -13,18 +13,26 @@ public class Turret : MonoBehaviour {
 
 	private int playerNum = 2;
 	private Quaternion rotation;
+	private float currAngle;
+	private float distToCenter;
 
 	public void SetPlayerNum(int playerNum) {
 		this.playerNum = playerNum;
 	}
 
+	void Start() {
+		distToCenter = Mathf.Abs(transform.position.x);
+		currAngle = Mathf.Atan2(TurretBase.transform.position.y, TurretBase.transform.position.x);
+	}
+
 	void Update() {
-		setRotation();
+		setTurretRotation();
 		setMovement();
+		setBaseRotation();
 		checkFire();
 	}
 
-	private void setRotation() {
+	private void setTurretRotation() {
 		float rotX = XCI.GetAxis(XboxAxis.RightStickX, playerNum);
 		float rotY = -XCI.GetAxis(XboxAxis.RightStickY, playerNum);
 		float angle = Mathf.Atan2(-rotY, rotX) * Mathf.Rad2Deg + 90f;
@@ -35,13 +43,36 @@ public class Turret : MonoBehaviour {
 		}
 	}
 
+	private void setBaseRotation() {
+		Vector2 centerLocation = gameObject.transform.position.normalized;
+		float angleForFeet = Mathf.Atan2(centerLocation.y, centerLocation.x) * 180f / Mathf.PI - 90;
+		TurretBase.transform.localEulerAngles = new Vector3(0, 0, angleForFeet);
+	}
+
 	private void setMovement() {
-		float speedX = XCI.GetAxis(XboxAxis.LeftStickX, playerNum) * Speed;
-		GetComponent<Rigidbody2D>().velocity = new Vector2(speedX, GetComponent<Rigidbody2D>().velocity.y);
+		bool increaseAngle = XCI.GetAxis(XboxAxis.LeftStickX, playerNum) > 0;
+		bool decreaseAngle = XCI.GetAxis(XboxAxis.LeftStickX, playerNum) < 0;
+
+		if (increaseAngle) {
+			float nextAngle = currAngle + Speed;	
+			float nextX = Mathf.Cos(nextAngle) * distToCenter;
+			float nextY = Mathf.Sin(nextAngle) * distToCenter;
+			currAngle = nextAngle;
+
+			transform.position = new Vector2(nextX, nextY);
+		}
+		else if (decreaseAngle) {
+			float nextAngle = currAngle - Speed;
+			float nextX = Mathf.Cos(nextAngle) * distToCenter;
+			float nextY = Mathf.Sin(nextAngle) * distToCenter;
+			currAngle = nextAngle;
+
+			transform.position = new Vector2(nextX, nextY);
+		}
 	}
 
 	private void checkFire() {
-		if(XCI.GetAxis(XboxAxis.RightTrigger, playerNum) > 0.1f) {
+		if (XCI.GetAxis(XboxAxis.RightTrigger, playerNum) > 0.1f) {
 			GameObject bullet = Instantiate(Bullet, BulletSpawn.position,  TurretGun.transform.rotation) as GameObject;
 			bullet.GetComponent<Rigidbody2D>().velocity = -TurretGun.transform.up * (Speed + 1);
 		}
