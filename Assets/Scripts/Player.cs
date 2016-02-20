@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 	}
 
 	private void rotateBody(Vector2 gravityDirection){
-		string[] terrain = {"terrain"};
+		string[] terrain = {"Terrain"};
 		RaycastHit2D cast = Physics2D.Raycast( gameObject.transform.position, gravityDirection, float.MaxValue, LayerMask.GetMask( terrain ) );
 		float angleForFeet = Mathf.Atan2(-1f*cast.normal.y, -1f*cast.normal.x )*180f/Mathf.PI + PLAYER_ANGLE_CORRECTION;
 
