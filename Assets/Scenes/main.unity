@@ -310,8 +310,12 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11423768, guid: d2885a41f7696ff4ea01920c38187491, type: 2}
-      propertyPath: Speed
-      value: 0.01
+      propertyPath: FireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423768, guid: d2885a41f7696ff4ea01920c38187491, type: 2}
+      propertyPath: BulletSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2885a41f7696ff4ea01920c38187491, type: 2}

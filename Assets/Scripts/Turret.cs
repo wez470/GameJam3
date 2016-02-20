@@ -10,11 +10,14 @@ public class Turret : MonoBehaviour {
 	public GameObject Bullet;
 	public Transform BulletSpawn;
 	public float Speed;
+	public float BulletSpeed;
+	public float FireRate;
 
 	private int playerNum = 2;
 	private Quaternion rotation;
 	private float currAngle;
 	private float distToCenter;
+	private float lastFireTime;
 
 	public void SetPlayerNum(int playerNum) {
 		this.playerNum = playerNum;
@@ -23,6 +26,7 @@ public class Turret : MonoBehaviour {
 	void Start() {
 		distToCenter = Mathf.Abs(transform.position.x);
 		currAngle = Mathf.Atan2(TurretBase.transform.position.y, TurretBase.transform.position.x);
+		lastFireTime = Time.timeSinceLevelLoad;
 	}
 
 	void Update() {
@@ -72,9 +76,10 @@ public class Turret : MonoBehaviour {
 	}
 
 	private void checkFire() {
-		if (XCI.GetAxis(XboxAxis.RightTrigger, playerNum) > 0.1f) {
+		if (XCI.GetAxis(XboxAxis.RightTrigger, playerNum) > 0.1f && Time.timeSinceLevelLoad - lastFireTime > FireRate) {
 			GameObject bullet = Instantiate(Bullet, BulletSpawn.position,  TurretGun.transform.rotation) as GameObject;
-			bullet.GetComponent<Rigidbody2D>().velocity = -TurretGun.transform.up * (Speed + 1);
+			bullet.GetComponent<Rigidbody2D>().velocity = -TurretGun.transform.up * (BulletSpeed + 1);
+			lastFireTime = Time.timeSinceLevelLoad;
 		}
 	}
 }
