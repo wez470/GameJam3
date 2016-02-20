@@ -46,8 +46,4 @@ public class Turret : MonoBehaviour {
 			bullet.GetComponent<Rigidbody2D>().velocity = -TurretGun.transform.up * (Speed + 1);
 		}
 	}
-
-	private void shoot() {
-		
-	}
 }
