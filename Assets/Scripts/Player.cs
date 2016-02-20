@@ -31,12 +31,16 @@ public class Player : MonoBehaviour {
 		rotateBody( down );
 
 		Vector2 velocity = ( XCI.GetAxis(XboxAxis.LeftStickX, playerNum) * Speed * left);
-
 		GetComponent<Rigidbody2D>().velocity = currentVelocity + velocity;
 	}
 
 	private void rotateBody(Vector2 gravityDirection){
-		float angleForFeet = Mathf.Atan2( gravityDirection.y, gravityDirection.x )*180f/Mathf.PI + PLAYER_ANGLE_CORRECTION;
-		gameObject.transform.eulerAngles = new Vector3( 0, 0, angleForFeet );
+		string[] terrain = {"terrain"};
+		RaycastHit2D cast = Physics2D.Raycast( gameObject.transform.position, gravityDirection, float.MaxValue, LayerMask.GetMask( terrain ) );
+		float angleForFeet = Mathf.Atan2(-1f*cast.normal.y, -1f*cast.normal.x )*180f/Mathf.PI + PLAYER_ANGLE_CORRECTION;
+
+		float smoothedAngle = Mathf.LerpAngle( gameObject.transform.eulerAngles.z, angleForFeet, 0.25f );
+		gameObject.transform.eulerAngles = new Vector3( 0, 0, smoothedAngle );
 	}
+
 }
