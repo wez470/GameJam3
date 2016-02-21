@@ -223,7 +223,7 @@ GameObject:
   - 4: {fileID: 385965770}
   - 212: {fileID: 385965771}
   - 60: {fileID: 385965772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformBig5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   - 4: {fileID: 459176490}
   - 212: {fileID: 459176491}
   - 60: {fileID: 459176492}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformBig2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1283,7 +1283,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 610587704}
   - 114: {fileID: 610587705}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Outter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,7 +1326,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 772179409}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1357,7 +1357,7 @@ GameObject:
   - 4: {fileID: 840706961}
   - 212: {fileID: 840706962}
   - 60: {fileID: 840706963}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformBig4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1679,7 +1679,7 @@ GameObject:
   - 4: {fileID: 965620442}
   - 212: {fileID: 965620443}
   - 60: {fileID: 965620444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformBig1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2460,7 +2460,7 @@ GameObject:
   - 4: {fileID: 1044610935}
   - 212: {fileID: 1044610936}
   - 60: {fileID: 1044610937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformSmall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2768,7 +2768,7 @@ GameObject:
   - 4: {fileID: 1166908631}
   - 212: {fileID: 1166908632}
   - 60: {fileID: 1166908633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformSmall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3224,7 +3224,7 @@ GameObject:
   - 4: {fileID: 1570941591}
   - 212: {fileID: 1570941592}
   - 60: {fileID: 1570941593}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: platformSmall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3730,7 +3730,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1606400435}
   - 114: {fileID: 1606400436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
