@@ -57,6 +57,7 @@ public class Turret : MonoBehaviour {
 	public void Hit() {
 		
         killSound.Play();
+        Instantiate(Explosion);
         Invoke("DestroyMe", 2.0f);
 
 
@@ -65,7 +66,6 @@ public class Turret : MonoBehaviour {
     void DestroyMe()
 {
 		playerManager.PlayerDied(playerNum);
-		Instantiate( Explosion );
 		Destroy( myHealth1 );
 		Destroy(this.gameObject);
 }
