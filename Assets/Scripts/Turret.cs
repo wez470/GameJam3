@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour {
 	public Transform BulletSpawn;
 	public Animator GunAnimator;
 	public Animator BaseAnimator;
+    public AudioSource shootSound;
 	public float Speed;
 	public float BulletSpeed;
 	public float FireRate;
@@ -107,6 +108,7 @@ public class Turret : MonoBehaviour {
 			GameObject bullet = Instantiate(Bullet, BulletSpawn.position,  TurretGun.transform.rotation) as GameObject;
 			GunAnimator.SetBool("shoot", true);
 			Invoke("stopShooting", 0.15f);
+            shootSound.Play();
 			bullet.GetComponent<Rigidbody2D>().velocity = -TurretGun.transform.up * (BulletSpeed + 1);
 			lastFireTime = Time.timeSinceLevelLoad;
 		}
