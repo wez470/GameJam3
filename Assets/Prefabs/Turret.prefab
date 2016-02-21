@@ -61,7 +61,7 @@ GameObject:
   - 82: {fileID: 8223338}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -594,6 +594,10 @@ Prefab:
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 8223338}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Turret
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150942}
