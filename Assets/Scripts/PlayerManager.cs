@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour {
 	public Transform Turret1Spawn;
 	public Transform Turret2Spawn;
 
-	private bool evenPlayersTurrets = true;
+	private static bool evenPlayersTurrets = true;
 	private bool[] playersAlive = new bool[4];
 
 	void CreatePlayers() {
@@ -25,8 +25,9 @@ public class PlayerManager : MonoBehaviour {
 		evenPlayersTurrets = !evenPlayersTurrets;
 	}
 
+	// Will get called every time
 	void Awake() {
-		DontDestroyOnLoad(this.gameObject);
+		DontDestroyOnLoad(this);
 		CreatePlayers();
 	}
 
@@ -100,24 +101,20 @@ public class PlayerManager : MonoBehaviour {
 				if (evenPlayersTurrets) {
 					//ROBOTS WIN
 					SceneManager.LoadScene(1);
-					CreatePlayers();
 				}
 				else {
 					//HUMANS WIN
 					SceneManager.LoadScene(1);
-					CreatePlayers();
 				}
 			}
 			else if (!playersAlive[1]) { // player 2 dead
 				if (evenPlayersTurrets) {
 					//HUMANS WIN
 					SceneManager.LoadScene(1);
-					CreatePlayers();
 				}
 				else {
 					//ROBOTS WIN
 					SceneManager.LoadScene(1);
-					CreatePlayers();
 				}
 			}
 		}
@@ -127,24 +124,20 @@ public class PlayerManager : MonoBehaviour {
 				if (evenPlayersTurrets) {
 					//ROBOTS WIN
 					SceneManager.LoadScene(1);
-					CreatePlayers();
 				}
 				else {
 					//HUMANS WIN
 					SceneManager.LoadScene(1);
-					CreatePlayers();
 				}
 			}
 			else if (!playersAlive[1] && !playersAlive[3]) { // players 2 and 4 are dead
 				if (evenPlayersTurrets) {
 					//HUMANS WIN
 					SceneManager.LoadScene(1);
-					CreatePlayers();
 				}
 				else {
 					//ROBOTS WIN
 					SceneManager.LoadScene(1);
-					CreatePlayers();
 				}
 			}
 		}
