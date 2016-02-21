@@ -17,10 +17,10 @@ TagManager:
   - 
   - 
   - Terrain
-  - Bullet
+  - Player
   - Turret
-  - 
-  - 
+  - TurretBullet
+  - PlayerBullet
   - 
   - 
   - 
