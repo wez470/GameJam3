@@ -2447,6 +2447,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11408938, guid: 10f5fe05868e3af44b8d4ac20b48869d, type: 2}
+      propertyPath: GunPickup
+      value: 
+      objectReference: {fileID: 115738, guid: 25acc8d6069773c458d506919ef64176, type: 2}
+    - target: {fileID: 11408938, guid: 10f5fe05868e3af44b8d4ac20b48869d, type: 2}
+      propertyPath: GunRespawnTime
+      value: 7.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10f5fe05868e3af44b8d4ac20b48869d, type: 2}
   m_IsPrefabParent: 0
