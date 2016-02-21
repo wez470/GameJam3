@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using XboxCtrlrInput;
 using System.Collections;
 using System;
@@ -37,6 +38,7 @@ public class PlayerManager : MonoBehaviour {
 				newTurret.tag = "Turret";
 				Turret turret = newTurret.gameObject.GetComponent<Turret>();
 				turret.SetPlayerNum(playerNum);
+				turret.SetPlayerManager(this);
 			}
 			else {
 				GameObject newPlayer = Instantiate(Player) as GameObject;
@@ -44,6 +46,7 @@ public class PlayerManager : MonoBehaviour {
 				newPlayer.tag = "Player";
 				Player player = newPlayer.gameObject.GetComponent<Player>();
 				player.SetPlayerNum(playerNum);
+				player.SetPlayerManager(this);
 			}
 		}
 		else {
@@ -53,6 +56,7 @@ public class PlayerManager : MonoBehaviour {
 				newPlayer.tag = "Player";
 				Player player = newPlayer.gameObject.GetComponent<Player>();
 				player.SetPlayerNum(playerNum);
+				player.SetPlayerManager(this);
 			}
 			else {
 				GameObject newTurret = Instantiate(Turret) as GameObject;
@@ -60,6 +64,7 @@ public class PlayerManager : MonoBehaviour {
 				newTurret.tag = "Turret";
 				Turret turret = newTurret.gameObject.GetComponent<Turret>();
 				turret.SetPlayerNum(playerNum);
+				turret.SetPlayerManager(this);
 			}
 		}
 	}
@@ -88,21 +93,58 @@ public class PlayerManager : MonoBehaviour {
 	public void PlayerDied(int playerNum) {
 		playersAlive[playerNum - 1] = false;
 
-		// players 1 and 3 are dead
-		if (!playersAlive[0] && !playersAlive[2]) {
-			if (evenPlayersTurrets) {
-				//ROBOTS WIN
+		if (XCI.GetNumPluggedCtrlrs() == 2) { // 2 players playing
+			// player 1 dead
+			if (!playersAlive[0]) {
+				if (evenPlayersTurrets) {
+					//ROBOTS WIN
+					SceneManager.LoadScene(1);
+					CreatePlayers();
+				}
+				else {
+					//HUMANS WIN
+					SceneManager.LoadScene(1);
+					CreatePlayers();
+				}
 			}
-			else {
-				//HUMANS WIN
+			else if (!playersAlive[1]) { // player 2 dead
+				if (evenPlayersTurrets) {
+					//HUMANS WIN
+					SceneManager.LoadScene(1);
+					CreatePlayers();
+				}
+				else {
+					//ROBOTS WIN
+					SceneManager.LoadScene(1);
+					CreatePlayers();
+				}
 			}
 		}
-		else if (!playersAlive[1] && !playersAlive[3]) { // players 2 and 4 are dead
-			if (evenPlayersTurrets) {
-				//HUMANS WIN
+		else { // 4 players playing the game
+			// players 1 and 3 are dead
+			if (!playersAlive[0] && !playersAlive[2]) {
+				if (evenPlayersTurrets) {
+					//ROBOTS WIN
+					SceneManager.LoadScene(1);
+					CreatePlayers();
+				}
+				else {
+					//HUMANS WIN
+					SceneManager.LoadScene(1);
+					CreatePlayers();
+				}
 			}
-			else {
-				//ROBOTS WIN
+			else if (!playersAlive[1] && !playersAlive[3]) { // players 2 and 4 are dead
+				if (evenPlayersTurrets) {
+					//HUMANS WIN
+					SceneManager.LoadScene(1);
+					CreatePlayers();
+				}
+				else {
+					//ROBOTS WIN
+					SceneManager.LoadScene(1);
+					CreatePlayers();
+				}
 			}
 		}
 	}
