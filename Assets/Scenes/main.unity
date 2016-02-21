@@ -217,6 +217,7 @@ Prefab:
     - target: {fileID: 21248752, guid: 897e2703d848c8843b23905b529235a3, type: 2}
       propertyPath: m_Sprite
       value: 
+<<<<<<< a6ab3d46d0eaaa6bf1e024337ee8f9d1d782d0ef
       objectReference: {fileID: 21300000, guid: fa67cca2e65982d49853d4a5358ef8e6,
         type: 3}
     - target: {fileID: 6067010, guid: 897e2703d848c8843b23905b529235a3, type: 2}
@@ -815,6 +816,10 @@ Prefab:
       propertyPath: m_Points.m_Paths.Array.data[1].Array.data[73].y
       value: -2.24
       objectReference: {fileID: 0}
+=======
+      objectReference: {fileID: 21300000, guid: d262648c336d3584d81b262a917b3bb6,
+        type: 3}
+>>>>>>> Rings randomly switch direction and speed now.
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 897e2703d848c8843b23905b529235a3, type: 2}
   m_IsPrefabParent: 0
@@ -1890,7 +1895,7 @@ GameObject:
   - 114: {fileID: 610587705}
   m_Layer: 8
   m_Name: Outter
-  m_TagString: Untagged
+  m_TagString: OuterPlatforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4337,7 +4342,7 @@ GameObject:
   - 114: {fileID: 1606400436}
   m_Layer: 8
   m_Name: Inner
-  m_TagString: Untagged
+  m_TagString: InnerPlatforms
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4464,7 +4469,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 462748, guid: 10f5fe05868e3af44b8d4ac20b48869d, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10f5fe05868e3af44b8d4ac20b48869d, type: 2}

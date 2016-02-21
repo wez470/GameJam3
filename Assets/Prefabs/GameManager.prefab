@@ -39,6 +39,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e01578d3e42f174f8ef9f8adbfc918f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ROTATION_DELTA: 1
+  CurrentTime: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
