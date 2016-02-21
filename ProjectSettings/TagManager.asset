@@ -7,6 +7,19 @@ TagManager:
   - OuterPlatforms
   - InnerPlatforms
   - Turret
+  - health1_1
+  - health2_1
+  - health3_1
+  - health2_2
+  - health3_2
+  - health1_2
+  - 'health1_3 '
+  - health2_3
+  - health3_3
+  - health3_4
+  - health2_4
+  - health1_4
+  - New Tag
   layers:
   - Default
   - TransparentFX

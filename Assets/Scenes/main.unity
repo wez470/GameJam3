@@ -573,7 +573,7 @@ GameObject:
   - 114: {fileID: 316905265}
   m_Layer: 5
   m_Name: health3_1
-  m_TagString: Untagged
+  m_TagString: health3_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1152,7 +1152,7 @@ GameObject:
   - 114: {fileID: 527651526}
   m_Layer: 5
   m_Name: health2_2
-  m_TagString: Untagged
+  m_TagString: health2_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2144,7 +2144,7 @@ GameObject:
   - 114: {fileID: 1095988780}
   m_Layer: 5
   m_Name: health3_2
-  m_TagString: Untagged
+  m_TagString: health3_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2211,7 +2211,7 @@ GameObject:
   - 114: {fileID: 1152356898}
   m_Layer: 5
   m_Name: health2_4
-  m_TagString: Untagged
+  m_TagString: health2_4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2623,7 +2623,7 @@ GameObject:
   - 114: {fileID: 1181921847}
   m_Layer: 5
   m_Name: 'health1_3 '
-  m_TagString: Untagged
+  m_TagString: 'health1_3 '
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2763,7 +2763,7 @@ GameObject:
   - 114: {fileID: 1310581795}
   m_Layer: 5
   m_Name: health1_1
-  m_TagString: Untagged
+  m_TagString: health1_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2830,7 +2830,7 @@ GameObject:
   - 114: {fileID: 1425681336}
   m_Layer: 5
   m_Name: health2_1
-  m_TagString: Untagged
+  m_TagString: health2_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3242,7 +3242,7 @@ GameObject:
   - 114: {fileID: 1629327102}
   m_Layer: 5
   m_Name: health1_4
-  m_TagString: Untagged
+  m_TagString: New Tag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3309,7 +3309,7 @@ GameObject:
   - 114: {fileID: 1769700772}
   m_Layer: 5
   m_Name: health3_4
-  m_TagString: Untagged
+  m_TagString: health3_4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3376,7 +3376,7 @@ GameObject:
   - 114: {fileID: 1930632123}
   m_Layer: 5
   m_Name: health3_3
-  m_TagString: Untagged
+  m_TagString: health3_3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3443,7 +3443,7 @@ GameObject:
   - 114: {fileID: 1960202550}
   m_Layer: 5
   m_Name: health1_2
-  m_TagString: Untagged
+  m_TagString: health1_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3616,7 +3616,7 @@ GameObject:
   - 114: {fileID: 2121531723}
   m_Layer: 5
   m_Name: health2_3
-  m_TagString: Untagged
+  m_TagString: health2_3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

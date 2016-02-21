@@ -18,9 +18,12 @@ public class Player : MonoBehaviour {
 	private Quaternion rotation;
 
     private int health = 3;
-    public GameObject health1, health2, health3;
+    public GameObject health1;
+    public GameObject health2;
+    public GameObject health3;
 
     CircleCollider2D myCircleCollider;
+    GameObject myHealth1, myHealth2, myHealth3;
 
     void Start()
     {
@@ -29,11 +32,19 @@ public class Player : MonoBehaviour {
         scaleX = this.GetComponent<Transform>().localScale.x;
         scaleY = this.GetComponent<Transform>().localScale.y;
         scaleZ = this.GetComponent<Transform>().localScale.z;
+        InvokeRepeating("Hit", 1.0f, 1.0f);
     }
 
     public void SetPlayerNum(int playerNum) {
 		this.playerNum = playerNum;
-	}
+        string h1string = "health1_" + playerNum;
+        string h2string = "health2_" + playerNum;
+        string h3string = "health3_" + playerNum;
+
+        myHealth1 = GameObject.FindGameObjectWithTag(h1string);
+        myHealth2 = GameObject.FindGameObjectWithTag(h2string);
+        myHealth3 = GameObject.FindGameObjectWithTag(h3string);
+    }
 
 	public int GetPlayerNum() {
 		return playerNum;
@@ -42,17 +53,20 @@ public class Player : MonoBehaviour {
     public void Hit()
     {
         health--;
+        print(health);
         if (health == 2)
         {
-            //  Invoke("health3.SetActive(false)", 3.0f);
-            // InvokeRepeating("flashText", 0.5f, 0.5f);
-            GameObject.Find("heath3_" + playerNum).SetActive(false);
+            Destroy(myHealth3.gameObject);
         }
-        if (health == 1)
-            GameObject.Find("heath2_" + playerNum).SetActive(false);
-
-        if (health < 1)
+        else if (health == 1)
+        {
+            Destroy(myHealth2.gameObject);
+        }
+        else if (health < 1)
+        {
+            Destroy(myHealth1.gameObject);
             Destroy(this.gameObject);
+        }
     }
 
     public void PickedUpGun(){
