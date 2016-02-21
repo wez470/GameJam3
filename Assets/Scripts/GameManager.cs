@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour {
 
 	public float ROTATION_DELTA;
 	public float CurrentTime;
+	public GameObject GunPickup;
 
 	void Start () {
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerBullet"), LayerMask.NameToLayer("Terrain"));
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("TurretBullet"), LayerMask.NameToLayer("Turret"));
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerBullet"), LayerMask.NameToLayer("Player"));
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Turret"), LayerMask.NameToLayer("Terrain"));
+
+		GameObject.Instantiate( GunPickup );
 
 		CurrentTime = Time.timeSinceLevelLoad;
 	}
