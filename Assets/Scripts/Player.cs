@@ -46,7 +46,6 @@ public class Player : MonoBehaviour {
         gun = gameObject.GetComponentInChildren<PlayerGun>();
         gun.gameObject.SetActive( false );
 
-        InvokeRepeating("Hit", 4, 1);
     }
 
 	public void SetPlayerManager(PlayerManager manager) {

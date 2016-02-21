@@ -12,6 +12,7 @@ public class Turret : MonoBehaviour {
 	public Animator GunAnimator;
 	public Animator BaseAnimator;
     public AudioSource shootSound;
+    public AudioSource killSound;
 	public float Speed;
 	public float BulletSpeed;
 	public float FireRate;
@@ -44,6 +45,7 @@ public class Turret : MonoBehaviour {
 
         Destroy( myHealth3 );
         Destroy( myHealth2 );
+      //  Invoke("Hit", 1);
     }
 		
 	public void SetPlayerManager(PlayerManager manager) {
@@ -51,12 +53,22 @@ public class Turret : MonoBehaviour {
 	}
 
 	public void Hit() {
-		playerManager.PlayerDied(playerNum);
-		Destroy( myHealth1 );
-		Destroy(this.gameObject);
-	}
+		
+        killSound.Play();
+        Invoke("DestroyMe", 2.0f);
 
-	public void SetColor(Color c){
+
+    }
+
+    void DestroyMe()
+{
+        playerManager.PlayerDied(playerNum);
+        Destroy(myHealth1);
+        Destroy(this.gameObject);
+
+}
+
+public void SetColor(Color c){
 		color = c;
 	}
 
