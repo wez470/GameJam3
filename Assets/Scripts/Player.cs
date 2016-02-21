@@ -11,7 +11,9 @@ public class Player : MonoBehaviour {
 	private const float PLAYER_ANGLE_CORRECTION = 90f;
 
 	public float Speed;
+	public float jumpStrength;
 
+	private string[] terrain = { "Terrain" };
 	private int playerNum = 1;
 	private Quaternion rotation;
 
@@ -19,19 +21,30 @@ public class Player : MonoBehaviour {
 		this.playerNum = playerNum;
 	}
 		
-	void Update() {
+	void FixedUpdate() {
 		setMovement();
 	}
 
 	private void setMovement() {
 		Vector2 down = gameObject.transform.position.normalized;
 		Vector2 left = new Vector2( -down.y, down.x );
-		Vector2 currentVelocity = GetComponent<Rigidbody2D>().velocity;
+		Rigidbody2D body = GetComponent<Rigidbody2D>();
+		Vector2 currentVelocity = body.velocity;
 
+		maybeJump( down );
 		rotateBody( down );
 
 		Vector2 velocity = ( XCI.GetAxis(XboxAxis.LeftStickX, playerNum) * Speed * left);
-		GetComponent<Rigidbody2D>().velocity = currentVelocity + velocity;
+		body.AddForce( velocity );
+	}
+
+	private void maybeJump(Vector2 down){
+		if (XCI.GetButtonDown(XboxButton.A, playerNum) ){
+			RaycastHit2D cast = Physics2D.Raycast( gameObject.transform.position, down, 0.5f, LayerMask.GetMask( "Terrain" ) );
+			if ( cast.collider != null ){
+				gameObject.GetComponent<Rigidbody2D>().AddForce( -1*down*jumpStrength );
+			}
+		}
 	}
 
 	private void rotateBody(Vector2 gravityDirection){
