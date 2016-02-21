@@ -15,6 +15,7 @@ public class Turret : MonoBehaviour {
 	public float Speed;
 	public float BulletSpeed;
 	public float FireRate;
+	public Color color;
 
 	private int playerNum = 2;
 	private Quaternion rotation;
@@ -35,6 +36,10 @@ public class Turret : MonoBehaviour {
 	public void Hit() {
 		playerManager.PlayerDied(playerNum);
 		Destroy(this.gameObject);
+	}
+
+	public void SetColor(Color c){
+		color = c;
 	}
 
 	void Start() {

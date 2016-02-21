@@ -96,7 +96,7 @@ GameObject:
   - 212: {fileID: 21258686}
   m_Layer: 0
   m_Name: Turret-body-colour
-  m_TagString: Untagged
+  m_TagString: turretBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -449,6 +449,7 @@ MonoBehaviour:
   Speed: 0.01
   BulletSpeed: 5
   FireRate: 2
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &21212172
 SpriteRenderer:
   m_ObjectHideFlags: 1

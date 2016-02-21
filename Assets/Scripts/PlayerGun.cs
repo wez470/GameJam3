@@ -10,6 +10,8 @@ public class PlayerGun : MonoBehaviour {
 	public float BulletSpeed;
 	public float FireRate;
 
+	private int ammo;
+
 	private Player player;
 	private float lastFireTime;
 
@@ -22,6 +24,10 @@ public class PlayerGun : MonoBehaviour {
 	void Update () {
 		setRotation();
 		checkFire();
+	}
+
+	public void SetAmmo(int amount){
+		ammo = amount;
 	}
 
 	private void setRotation() {
@@ -40,6 +46,15 @@ public class PlayerGun : MonoBehaviour {
 			GameObject bullet = Instantiate(Bullet, BulletSpawn.position,  transform.rotation) as GameObject;
 			bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(-1f * transform.up.y, transform.up.x) * (-1 * BulletSpeed);
 			lastFireTime = Time.timeSinceLevelLoad;
+			ammo--;
+
+			if (ammo <= 0){
+				disableGun();
+			}
 		}
+	}
+
+	private void disableGun(){
+		gameObject.SetActive( false );
 	}
 }

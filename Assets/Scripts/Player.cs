@@ -13,10 +13,16 @@ public class Player : MonoBehaviour {
 	public float Speed;
 	public float jumpStrength;
 
+	PlayerGun gun;
+
+	bool hasGun;
+
 	private string[] terrain = { "Terrain" };
 	private int playerNum = 1;
 	private Quaternion rotation;
 	private PlayerManager playerManager;
+
+	private Color color;
 
     private int health = 3;
     public GameObject health1;
@@ -29,10 +35,13 @@ public class Player : MonoBehaviour {
     void Start()
     {
         myCircleCollider = GetComponent<CircleCollider2D>();
-
+        hasGun = false;
         scaleX = this.GetComponent<Transform>().localScale.x;
         scaleY = this.GetComponent<Transform>().localScale.y;
         scaleZ = this.GetComponent<Transform>().localScale.z;
+
+        gun = gameObject.GetComponentInChildren<PlayerGun>();
+        gun.gameObject.SetActive( false );
     }
 
 	public void SetPlayerManager(PlayerManager manager) {
@@ -75,7 +84,24 @@ public class Player : MonoBehaviour {
     }
 
     public void PickedUpGun(){
+    	enableGun();
+	}
 
+	private void enableGun(){
+		hasGun = true;
+
+		gun.gameObject.SetActive( true );
+		gun.SetAmmo( 3 );
+	}
+
+	public void SetColor( Color c ){
+		color = c;
+
+		foreach( SpriteRenderer sr in gameObject.GetComponentsInChildren<SpriteRenderer>() ){
+			if (sr.transform.gameObject.tag == "playerPants" ){
+				sr.color = c;
+			}
+		}
 	}
 		
 	void FixedUpdate() {
@@ -104,7 +130,7 @@ public class Player : MonoBehaviour {
 
 	private void maybeJump(Vector2 down){
 		if (XCI.GetButtonDown(XboxButton.A, playerNum) ){
-			RaycastHit2D cast = Physics2D.Raycast( gameObject.transform.position, down, 0.5f, LayerMask.GetMask( "Terrain" ) );
+			RaycastHit2D cast = Physics2D.Raycast( gameObject.transform.position, down, 0.75f, LayerMask.GetMask( "Terrain" ) );
 			if ( cast.collider != null ){
 				gameObject.GetComponent<Rigidbody2D>().AddForce( -1*down*jumpStrength );
 			}

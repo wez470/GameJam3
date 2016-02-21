@@ -47,6 +47,7 @@ public class PlayerManager : MonoBehaviour {
 				Player player = newPlayer.gameObject.GetComponent<Player>();
 				player.SetPlayerNum(playerNum);
 				player.SetPlayerManager(this);
+				player.SetColor( Color.cyan );
 			}
 		}
 		else {
