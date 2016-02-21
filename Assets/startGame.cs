@@ -5,7 +5,8 @@ using System;
 using UnityEngine.SceneManagement;
 
 public class startGame : MonoBehaviour
-{ 
+{
+    public AudioSource buttonSound;
     void Update()
     {
         for (int i = 1; i <= XCI.GetNumPluggedCtrlrs(); i++)
@@ -13,6 +14,7 @@ public class startGame : MonoBehaviour
             if (XCI.GetButtonDown(XboxButton.Start, i))
             {
                 SceneManager.LoadScene(1);
+                buttonSound.Play();
             }
         }
     }
