@@ -4097,7 +4097,7 @@ GameObject:
   - 4: {fileID: 1202300518}
   - 212: {fileID: 1202300517}
   m_Layer: 0
-  m_Name: space3
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
