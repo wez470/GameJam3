@@ -39,6 +39,10 @@ public class Player : MonoBehaviour {
 	public void Hit() {
 		Destroy(this.gameObject);
 	}
+
+	public void PickedUpGun(){
+
+	}
 		
 	void FixedUpdate() {
         //don't let him grow!
