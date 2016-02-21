@@ -17,6 +17,9 @@ public class Player : MonoBehaviour {
 	private int playerNum = 1;
 	private Quaternion rotation;
 
+    private int health = 3;
+    public GameObject health1, health2, health3;
+
     CircleCollider2D myCircleCollider;
 
     void Start()
@@ -36,11 +39,23 @@ public class Player : MonoBehaviour {
 		return playerNum;
 	}
 
-	public void Hit() {
-		Destroy(this.gameObject);
-	}
+    public void Hit()
+    {
+        health--;
+        if (health == 2)
+        {
+            //  Invoke("health3.SetActive(false)", 3.0f);
+            // InvokeRepeating("flashText", 0.5f, 0.5f);
+            GameObject.Find("heath3_" + playerNum).SetActive(false);
+        }
+        if (health == 1)
+            GameObject.Find("heath2_" + playerNum).SetActive(false);
 
-	public void PickedUpGun(){
+        if (health < 1)
+            Destroy(this.gameObject);
+    }
+
+    public void PickedUpGun(){
 
 	}
 		
