@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour {
 	private bool[] playersAlive = new bool[4];
 
 	void CreatePlayers() {
-		for (int i = 1; i <= XCI.GetNumPluggedCtrlrs (); i++) {
+		for (int i = 1; i <= XCI.GetNumPluggedCtrlrs(); i++) {
 			CreatePlayer(i);
 		}
 		for (int i = 0; i < 4; i++) {
