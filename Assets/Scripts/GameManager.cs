@@ -4,6 +4,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public float ROTATION_DELTA;
+	public float MaxRotationSpeed = 1.5f;
+	public float MinRotationSpeed = 0.8f;
 	private float currentTime;
 	public GameObject GunPickup;
 	public float GunRespawnTime;
@@ -52,7 +54,7 @@ createGun ();
 	}
 
 	private float getRandomRotationSpeed(){
-		float val = UnityEngine.Random.Range( 1, 3);
+		float val = UnityEngine.Random.Range( MinRotationSpeed, MaxRotationSpeed );
 		if (UnityEngine.Random.value > 0.5f){
 			val *= -1;
 		}
