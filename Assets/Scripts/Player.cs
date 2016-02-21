@@ -52,7 +52,7 @@ public class Player : MonoBehaviour {
     public void Hit()
     {
         health--;
-        print(health);
+       // print(health);
         if (health == 2)
         {
             Destroy(myHealth3.gameObject);
