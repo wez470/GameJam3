@@ -26,9 +26,10 @@ public class GunPickup : MonoBehaviour {
 		if (col.gameObject.tag == "Player"){
 			Player p = col.gameObject.GetComponent<Player>();
 			p.PickedUpGun();
+
+			gameManager.GunPickedUp();
+			Destroy( this.gameObject );
 		}
-		gameManager.GunPickedUp();
-		Destroy( this.gameObject );
 	}
 
 	public void SetGameManager(GameManager gm){
