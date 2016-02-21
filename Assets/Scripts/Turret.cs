@@ -40,6 +40,11 @@ public class Turret : MonoBehaviour {
 		checkFire();
 	}
 
+	void FixedUpdate() {
+		setMovement();
+		setBaseRotation();
+	}
+
 	private void setTurretRotation() {
 		float rotX = XCI.GetAxis(XboxAxis.RightStickX, playerNum);
 		float rotY = -XCI.GetAxis(XboxAxis.RightStickY, playerNum);
