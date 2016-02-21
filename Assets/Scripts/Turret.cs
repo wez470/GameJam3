@@ -9,6 +9,8 @@ public class Turret : MonoBehaviour {
 	public GameObject TurretGun;
 	public GameObject Bullet;
 	public Transform BulletSpawn;
+	public Animator GunAnimator;
+	public Animator BaseAnimator;
 	public float Speed;
 	public float BulletSpeed;
 	public float FireRate;
@@ -18,6 +20,7 @@ public class Turret : MonoBehaviour {
 	private float currAngle;
 	private float distToCenter;
 	private float lastFireTime;
+	private bool movingRight = true;
 
 	public void SetPlayerNum(int playerNum) {
 		this.playerNum = playerNum;
@@ -56,8 +59,18 @@ public class Turret : MonoBehaviour {
 	private void setMovement() {
 		bool increaseAngle = XCI.GetAxis(XboxAxis.LeftStickX, playerNum) > 0;
 		bool decreaseAngle = XCI.GetAxis(XboxAxis.LeftStickX, playerNum) < 0;
+		bool moving = BaseAnimator.GetBool("moving");
 
 		if (increaseAngle) {
+			if (!moving) {
+				BaseAnimator.SetBool("moving", true);
+			}
+			if (!movingRight) {
+				Vector3 scale = TurretBase.transform.localScale;
+				TurretBase.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+				movingRight = true;
+			}
+
 			float nextAngle = currAngle + Speed;	
 			float nextX = Mathf.Cos(nextAngle) * distToCenter;
 			float nextY = Mathf.Sin(nextAngle) * distToCenter;
@@ -66,6 +79,15 @@ public class Turret : MonoBehaviour {
 			transform.position = new Vector2(nextX, nextY);
 		}
 		else if (decreaseAngle) {
+			if (!moving) {
+				BaseAnimator.SetBool("moving", true);
+			}
+			if (movingRight) {
+				Vector3 scale = TurretBase.transform.localScale;
+				TurretBase.transform.localScale = new Vector3(-scale.x, scale.y, scale.z);
+				movingRight = false;
+			}
+
 			float nextAngle = currAngle - Speed;
 			float nextX = Mathf.Cos(nextAngle) * distToCenter;
 			float nextY = Mathf.Sin(nextAngle) * distToCenter;
@@ -73,13 +95,24 @@ public class Turret : MonoBehaviour {
 
 			transform.position = new Vector2(nextX, nextY);
 		}
+		else {
+			if (moving) {
+				BaseAnimator.SetBool("moving", false);	
+			}
+		}
 	}
 
 	private void checkFire() {
 		if (XCI.GetAxis(XboxAxis.RightTrigger, playerNum) > 0.1f && Time.timeSinceLevelLoad - lastFireTime > FireRate) {
 			GameObject bullet = Instantiate(Bullet, BulletSpawn.position,  TurretGun.transform.rotation) as GameObject;
+			GunAnimator.SetBool("shoot", true);
+			Invoke("stopShooting", 0.15f);
 			bullet.GetComponent<Rigidbody2D>().velocity = -TurretGun.transform.up * (BulletSpeed + 1);
 			lastFireTime = Time.timeSinceLevelLoad;
 		}
+	}
+
+	private void stopShooting() {
+		GunAnimator.SetBool("shoot", false);
 	}
 }
