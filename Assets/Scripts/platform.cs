@@ -7,7 +7,6 @@ public class platform : MonoBehaviour
     public float rotationSpeed = 1.0F;
     void Update()
     {
-        //yRotation += yRotation;
         yRotation += rotationSpeed;
         transform.eulerAngles = new Vector3(10, 0, yRotation);
     }
