@@ -114,7 +114,7 @@ public class Turret : MonoBehaviour {
 			GunAnimator.SetBool("shoot", true);
 			Invoke("stopShooting", 0.15f);
             shootSound.Play();
-			bullet.GetComponent<Rigidbody2D>().velocity = -TurretGun.transform.up * (BulletSpeed + 1);
+			bullet.GetComponent<Rigidbody2D>().velocity = -TurretGun.transform.up * (BulletSpeed);
 			lastFireTime = Time.timeSinceLevelLoad;
 		}
 	}
