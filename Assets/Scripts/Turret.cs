@@ -22,12 +22,18 @@ public class Turret : MonoBehaviour {
 	private float distToCenter;
 	private float lastFireTime;
 	private bool movingRight = true;
+	private PlayerManager playerManager;
 
 	public void SetPlayerNum(int playerNum) {
 		this.playerNum = playerNum;
 	}
+		
+	public void SetPlayerManager(PlayerManager manager) {
+		playerManager = manager;
+	}
 
 	public void Hit() {
+		playerManager.PlayerDied(playerNum);
 		Destroy(this.gameObject);
 	}
 
