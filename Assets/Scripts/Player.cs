@@ -3,7 +3,9 @@ using XboxCtrlrInput;
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	private const float ROT_DEAD_ZONE = 0.2f;
+    float scaleX, scaleY, scaleZ;
+
+    private const float ROT_DEAD_ZONE = 0.2f;
 
 	/*Player starts with 0 degrees rotation meaning his feet point down.
 	  We need to add that to the calculation for the direction to point his feet.
@@ -17,13 +19,30 @@ public class Player : MonoBehaviour {
 	private int playerNum = 1;
 	private Quaternion rotation;
 
-	public void SetPlayerNum(int playerNum) {
+    CircleCollider2D myCircleCollider;
+
+    void Start()
+    {
+        myCircleCollider = GetComponent<CircleCollider2D>();
+
+        scaleX = this.GetComponent<Transform>().localScale.x;
+        scaleY = this.GetComponent<Transform>().localScale.y;
+        scaleZ = this.GetComponent<Transform>().localScale.z;
+    }
+    public void SetPlayerNum(int playerNum) {
 		this.playerNum = playerNum;
 	}
 		
 	void FixedUpdate() {
-		setMovement();
-	}
+        //don't let him grow!
+        transform.GetComponent<Transform>().localScale = new Vector3(scaleX, scaleY, scaleZ);
+
+        setMovement();
+        if (gameObject.GetComponent<Rigidbody2D>() == null){
+            this.gameObject.AddComponent<Rigidbody2D>();
+        }
+    
+}
 
 	private void setMovement() {
 		Vector2 down = gameObject.transform.position.normalized;

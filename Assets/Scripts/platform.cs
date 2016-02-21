@@ -10,4 +10,5 @@ public class platform : MonoBehaviour
         yRotation += rotationSpeed;
         transform.eulerAngles = new Vector3(10, 0, yRotation);
     }
+     
 }
