@@ -32,7 +32,6 @@ public class Player : MonoBehaviour {
         scaleX = this.GetComponent<Transform>().localScale.x;
         scaleY = this.GetComponent<Transform>().localScale.y;
         scaleZ = this.GetComponent<Transform>().localScale.z;
-        InvokeRepeating("Hit", 1.0f, 1.0f);
     }
 
     public void SetPlayerNum(int playerNum) {
