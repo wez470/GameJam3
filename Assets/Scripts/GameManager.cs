@@ -4,8 +4,9 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public float ROTATION_DELTA;
-	public float CurrentTime;
+	private float currentTime;
 	public GameObject GunPickup;
+	public float GunRespawnTime;
 
 	void Start () {
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerBullet"), LayerMask.NameToLayer("Terrain"));
@@ -17,13 +18,13 @@ public class GameManager : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Turret"), LayerMask.NameToLayer("Terrain"));
 createGun ();
 
-		CurrentTime = Time.timeSinceLevelLoad;
+		currentTime = Time.timeSinceLevelLoad;
 	}
 
 	void Update(){
 
-		if (Time.time >= (CurrentTime + ROTATION_DELTA) ){
-			CurrentTime = Time.time;
+		if (Time.time >= (currentTime + ROTATION_DELTA) ){
+			currentTime = Time.time;
 
 			rotatePlatforms( "InnerPlatforms", getRandomRotationSpeed() );
 			rotatePlatforms( "OuterPlatforms", getRandomRotationSpeed() );
@@ -31,7 +32,7 @@ createGun ();
 	}
 
 	public void GunPickedUp(){
-		Invoke( "createGun", 5.0f );
+		Invoke( "createGun", GunRespawnTime );
 	}
 
 	private void createGun()
