@@ -21,6 +21,9 @@ public class Player : MonoBehaviour {
 	private int playerNum = 1;
 	private Quaternion rotation;
 	private PlayerManager playerManager;
+    public AudioSource dieSound;
+    public AudioSource hitSound;
+    public AudioSource jumpSound;
 
 	private Color color;
 
@@ -42,6 +45,8 @@ public class Player : MonoBehaviour {
 
         gun = gameObject.GetComponentInChildren<PlayerGun>();
         gun.gameObject.SetActive( false );
+
+        InvokeRepeating("Hit", 4, 1);
     }
 
 	public void SetPlayerManager(PlayerManager manager) {
@@ -70,17 +75,25 @@ public class Player : MonoBehaviour {
         if (health == 2)
         {
             Destroy(myHealth3.gameObject);
+            hitSound.Play();
         }
         else if (health == 1)
         {
             Destroy(myHealth2.gameObject);
+            hitSound.Play();
         }
         else if (health < 1)
         {
-			playerManager.PlayerDied(playerNum);
+            dieSound.Play();
+            playerManager.PlayerDied(playerNum);
             Destroy(myHealth1.gameObject);
-            Destroy(this.gameObject);
+            Invoke("DestroyMe", 0.5f);  
         }
+    }
+
+    void DestroyMe()
+    {
+        Destroy(this.gameObject);
     }
 
     public void PickedUpGun(){
@@ -133,6 +146,7 @@ public class Player : MonoBehaviour {
 			RaycastHit2D cast = Physics2D.Raycast( gameObject.transform.position, down, 0.75f, LayerMask.GetMask( "Terrain" ) );
 			if ( cast.collider != null ){
 				gameObject.GetComponent<Rigidbody2D>().AddForce( -1*down*jumpStrength );
+                jumpSound.Play();
 			}
 		}
 	}
