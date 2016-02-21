@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour {
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("TurretBullet"), LayerMask.NameToLayer("Turret"));
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerBullet"), LayerMask.NameToLayer("Player"));
 		Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Turret"), LayerMask.NameToLayer("Terrain"));
-
-		GameObject.Instantiate( GunPickup );
+createGun ();
 
 		CurrentTime = Time.timeSinceLevelLoad;
 	}
@@ -29,6 +28,17 @@ public class GameManager : MonoBehaviour {
 			rotatePlatforms( "InnerPlatforms", getRandomRotationSpeed() );
 			rotatePlatforms( "OuterPlatforms", getRandomRotationSpeed() );
 		}
+	}
+
+	public void GunPickedUp(){
+		Invoke( "createGun", 5.0f );
+	}
+
+	private void createGun()
+	{
+		GameObject go = GameObject.Instantiate (GunPickup);
+		GunPickup script = go.GetComponent<GunPickup> ();
+		script.SetGameManager (this);
 	}
 
 	private void rotatePlatforms( string platformTag, float rotationSpeed ){
