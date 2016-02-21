@@ -20,6 +20,9 @@ TagManager:
   - health2_4
   - health1_4
   - New Tag
+  - Gun
+  - turretBase
+  - playerPants
   layers:
   - Default
   - TransparentFX
