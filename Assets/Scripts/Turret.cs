@@ -25,9 +25,26 @@ public class Turret : MonoBehaviour {
 	private bool movingRight = true;
 	private PlayerManager playerManager;
 
+	private int health = 1;
+    public GameObject health1;
+    public GameObject health2;
+    public GameObject health3;
+
+	GameObject myHealth1, myHealth2, myHealth3;
+
 	public void SetPlayerNum(int playerNum) {
 		this.playerNum = playerNum;
-	}
+        string h1string = "health1_" + playerNum;
+        string h2string = "health2_" + playerNum;
+        string h3string = "health3_" + playerNum;
+
+        myHealth1 = GameObject.FindGameObjectWithTag(h1string);
+        myHealth2 = GameObject.FindGameObjectWithTag(h2string);
+        myHealth3 = GameObject.FindGameObjectWithTag(h3string);
+
+        Destroy( myHealth3 );
+        Destroy( myHealth2 );
+    }
 		
 	public void SetPlayerManager(PlayerManager manager) {
 		playerManager = manager;
@@ -35,6 +52,7 @@ public class Turret : MonoBehaviour {
 
 	public void Hit() {
 		playerManager.PlayerDied(playerNum);
+		Destroy( myHealth1 );
 		Destroy(this.gameObject);
 	}
 
