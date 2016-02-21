@@ -526,6 +526,7 @@ MonoBehaviour:
   BulletSpeed: 5
   FireRate: 2
   color: {r: 0, g: 0, b: 0, a: 0}
+  Explosion: {fileID: 143696, guid: 0705aa9c418fd2640a19a1923d8fc243, type: 2}
   health1: {fileID: 0}
   health2: {fileID: 0}
   health3: {fileID: 0}
@@ -756,6 +757,10 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Explosion
+      value: 
+      objectReference: {fileID: 143696, guid: 0705aa9c418fd2640a19a1923d8fc243, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 150942}
