@@ -197,11 +197,11 @@ GameObject:
   - 92: {fileID: 169786584}
   - 124: {fileID: 169786583}
   - 81: {fileID: 169786582}
-  - 114: {fileID: 169786587}
   - 82: {fileID: 169786588}
   - 114: {fileID: 169786589}
   - 114: {fileID: 169786590}
   - 82: {fileID: 169786591}
+  - 95: {fileID: 169786587}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -238,7 +238,7 @@ Camera:
   m_GameObject: {fileID: 169786581}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -276,19 +276,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &169786587
-MonoBehaviour:
+--- !u!95 &169786587
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 169786581}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 932db1d69c9634d40bd6b4980b352505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Angle: 5
-  _Period: 2
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66fa685bf099e490483d5f81cf596371, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!82 &169786588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -375,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSound: {fileID: 169786591}
+  MenuAnimator: {fileID: 169786587}
 --- !u!114 &169786590
 MonoBehaviour:
   m_ObjectHideFlags: 0
