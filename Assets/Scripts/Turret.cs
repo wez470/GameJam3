@@ -25,6 +25,8 @@ public class Turret : MonoBehaviour {
 	private bool movingRight = true;
 	private PlayerManager playerManager;
 
+	public GameObject Explosion;
+
 	private int health = 1;
     public GameObject health1;
     public GameObject health2;
@@ -52,6 +54,7 @@ public class Turret : MonoBehaviour {
 
 	public void Hit() {
 		playerManager.PlayerDied(playerNum);
+		Instantiate( Explosion );
 		Destroy( myHealth1 );
 		Destroy(this.gameObject);
 	}
