@@ -35,6 +35,10 @@ public class Player : MonoBehaviour {
 	public int GetPlayerNum() {
 		return playerNum;
 	}
+
+	public void Hit() {
+		Destroy(this.gameObject);
+	}
 		
 	void FixedUpdate() {
         //don't let him grow!

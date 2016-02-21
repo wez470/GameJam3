@@ -11,7 +11,7 @@ public class TurretBullet : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Player") {
-			Destroy(coll.gameObject);
+			coll.gameObject.GetComponent<Player>().Hit();
 			Destroy(this.gameObject);
 		}
 	}

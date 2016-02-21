@@ -27,6 +27,10 @@ public class Turret : MonoBehaviour {
 		this.playerNum = playerNum;
 	}
 
+	public void Hit() {
+		Destroy(this.gameObject);
+	}
+
 	void Start() {
 		distToCenter = Mathf.Sqrt(transform.position.x * transform.position.x + transform.position.y * transform.position.y);
 		currAngle = Mathf.Atan2(TurretBase.transform.position.y, TurretBase.transform.position.x);

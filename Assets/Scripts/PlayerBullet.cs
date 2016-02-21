@@ -10,10 +10,10 @@ public class PlayerBullet : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		/*if (coll.gameObject.tag == "Player") {
-			Destroy(coll.gameObject);
+		if (coll.gameObject.tag == "Turret") {
+			coll.gameObject.GetComponent<Turret>().Hit();
 			Destroy(this.gameObject);
-		}*/
+		}
 	}
 
 	void OnBecameInvisible() {
