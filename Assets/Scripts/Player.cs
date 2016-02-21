@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
 	private string[] terrain = { "Terrain" };
 	private int playerNum = 1;
 	private Quaternion rotation;
+	private PlayerManager playerManager;
 
     private int health = 3;
     public GameObject health1;
@@ -33,6 +34,10 @@ public class Player : MonoBehaviour {
         scaleY = this.GetComponent<Transform>().localScale.y;
         scaleZ = this.GetComponent<Transform>().localScale.z;
     }
+
+	public void SetPlayerManager(PlayerManager manager) {
+		playerManager = manager;
+	}
 
     public void SetPlayerNum(int playerNum) {
 		this.playerNum = playerNum;
@@ -63,6 +68,7 @@ public class Player : MonoBehaviour {
         }
         else if (health < 1)
         {
+			playerManager.PlayerDied(playerNum);
             Destroy(myHealth1.gameObject);
             Destroy(this.gameObject);
         }
