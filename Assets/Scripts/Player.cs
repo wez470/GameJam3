@@ -85,6 +85,7 @@ public class Player : MonoBehaviour {
         {
             dieSound.Play();
             playerManager.PlayerDied(playerNum);
+            Debug.Log( "Player: " + playerNum );
             Destroy(myHealth1.gameObject);
             Invoke("DestroyMe", 0.5f);  
         }

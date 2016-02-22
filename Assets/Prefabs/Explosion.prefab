@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 424058}
   - 198: {fileID: 19850190}
   - 199: {fileID: 19946586}
+  - 114: {fileID: 11492738}
   m_Layer: 0
   m_Name: ExplosionCloud
   m_TagString: Untagged
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 177946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e06a08313ad45cf4da057269fdd44726, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ae9828580f8b934dafe13826b95c0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11485940
@@ -108,6 +109,17 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae9828580f8b934dafe13826b95c0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11492738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140628}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ae9828580f8b934dafe13826b95c0ad, type: 3}

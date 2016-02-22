@@ -2640,7 +2640,7 @@ GameObject:
   - 114: {fileID: 1181921847}
   m_Layer: 5
   m_Name: 'health1_3 '
-  m_TagString: 'health1_3 '
+  m_TagString: health1_3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
